@@ -18,5 +18,9 @@
   "homepage": "https://github.com/dev-academy-challenges/conways#readme",
   "devDependencies": {
     "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.4.2"
   }
 }
