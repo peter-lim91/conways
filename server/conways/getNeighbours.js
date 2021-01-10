@@ -10,9 +10,7 @@ for (let i = -1; i < 2; i++){
         validNeighbours.push(board[cellRow + i][cellColumn + j])
         }
       }
-    }
-    console.log(validNeighbours)
-    
+    }    
   }
   return validNeighbours
 }

@@ -16,6 +16,7 @@ function nextBoard (currentBoard) {
     }
     newBoard.push(nextRow)
   }
+  console.log(newBoard) 
   return newBoard
 }
 

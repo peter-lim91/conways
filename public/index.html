@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type='module' src="./script.js"></script>
+  <script src="./index.js"></script>
+  <script src="./websocket.js"></script>
   <link rel="stylesheet" href="./board.css">
   <title>Conways</title>
 </head>
 <body>
   <div class="board">
-    
+  </div>
+  <div>
+    <button onclick='start()'>Start</button> <button id='stop'>Stop</button>
+  </div>
+  <div>
+    <button onclick='getNextBoard()'>Next State</button>
+  </div>
+  <div>
+    <label for='boardWidth' name='boardWidth'>Width</label>
+    <input type='number' id='boardWidth' value = '10'>
+  </div>
+  <div>
+    <label for='boardHeight' name='boardHeight'>Height</label>
+    <input type='number' id='boardHeight' value = '10'>
+  </div>
+  <div>
+    <button onclick='newBoard()'>New Board</button>
   </div>
 </body>
 </html>
