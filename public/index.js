@@ -15,7 +15,7 @@ function addClickHandler() {
 }
 
 function start() {
-  const x = setInterval(getNextBoard, 1000)
+  const x = setInterval(getNextBoard, 500)
   const stopButton = document.querySelector('#stop')
   stopButton.addEventListener('click', () => clearInterval(x), {once: true})
 }
@@ -91,7 +91,6 @@ function getBoardState() {
 
 function unFlattenBoard(boardFlat) {
   const width = parseInt(getBoardNode().style.width.slice(0, -2)) / 50
-  console.log(width)
   const reducer = (acc, cell) => {
     const newArray = [...acc]
     const rows = newArray.length
