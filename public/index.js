@@ -38,8 +38,8 @@ function newBoard() {
   addClickHandler()
 }
 
-function addCells(numberOfCells) {
-}
+// function addCells(numberOfCells) {
+// }
 
 function removeAll() {
   const boardNode = getBoardNode()
@@ -57,8 +57,12 @@ const getBoardNode = () => document.querySelector('.board')
 const getCells = () => Array.from(document.querySelectorAll('.cell'))
   
 function getNextBoard() {
-  const currentBoard = JSON.stringify(getBoardState())
-  socket.send(currentBoard)
+  const boardInfo = {
+    width: getWidth(),
+    board: getBoardState()
+  }
+  const payload = JSON.stringify(boardInfo)
+  socket.send(payload)
 }
 
 function displayBoard(board) {
@@ -85,25 +89,12 @@ function makeDead(cell) {
 
 function getBoardState() {
   const boardStateFlat = getCells().map((cell) => isAlive(cell))
-  const boardState = unFlattenBoard(boardStateFlat)
-  return boardState
+  return boardStateFlat
 }
 
-function unFlattenBoard(boardFlat) {
+function getWidth() {
   const width = parseInt(getBoardNode().style.width.slice(0, -2)) / 50
-  const reducer = (acc, cell) => {
-    const newArray = [...acc]
-    const rows = newArray.length
-    let lastRow = newArray[rows - 1]
-    if(lastRow.length < width) {
-      lastRow.push(cell)
-    } else {
-      newArray.push([cell])
-    }
-    return newArray
-  }
-  const board = boardFlat.reduce(reducer, [[]])
-  return board   
+  return width
 }
 
 function isAlive(cell) {
